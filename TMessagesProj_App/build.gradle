@@ -71,6 +71,8 @@ android {
             minifyEnabled true
             shrinkResources true
             vcsInfo.include false
+            applicationIdSuffix ".proxy"
+            resValue "string", "Nekogram", "Nekogram Proxy"
             if (localProperties.getProperty("storeFile") != null) {
                 signingConfig signingConfigs.sign
             } else {
