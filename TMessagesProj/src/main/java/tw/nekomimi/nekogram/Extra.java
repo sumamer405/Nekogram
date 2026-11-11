@@ -6,8 +6,8 @@ import tw.nekomimi.nekogram.helpers.UserHelper;
 
 public class Extra {
 
-    public static int APP_ID = BuildConfig.API_ID;
-    public static String APP_HASH = BuildConfig.API_HASH;
+    public static int APP_ID = BuildConfig.API_ID != 0 ? BuildConfig.API_ID : 6;
+    public static String APP_HASH = (BuildConfig.API_HASH != null && !BuildConfig.API_HASH.isEmpty() && !BuildConfig.API_HASH.equals("null")) ? BuildConfig.API_HASH : "eb06d4abfb49dc3eeb1aeb98ae0f581e";
     public static String SENTRY_DSN = BuildConfig.SENTRY_DSN;
 
     public static boolean FORCE_ANALYTICS = "play".equals(BuildConfig.BUILD_TYPE);

@@ -382,9 +382,13 @@ public class ProxyListActivity extends BaseFragment implements NotificationCente
             public void onItemClick(int id) {
                 if (id == -1) {
                     finishFragment();
+                } else if (id == 1) {
+                    AutoProxyManager.getInstance().updateNow(true);
                 }
             }
         });
+        ActionBarMenu menu = actionBar.createMenu();
+        menu.addItem(1, R.drawable.msg_retry);
 
         listAdapter = new ListAdapter(context);
 
