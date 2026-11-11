@@ -25,6 +25,10 @@ sentry {
 }
 
 android {
+    buildFeatures {
+        resValues true
+    }
+
     defaultConfig.applicationId = APP_PACKAGE
 
     packagingOptions {
