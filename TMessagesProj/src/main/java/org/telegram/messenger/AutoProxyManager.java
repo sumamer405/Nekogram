@@ -1,6 +1,7 @@
 package org.telegram.messenger;
 
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.SystemClock;
 import android.widget.Toast;
 
@@ -92,7 +93,7 @@ public class AutoProxyManager implements NotificationCenter.NotificationCenterDe
         boolean added = false;
         for (String uri : SEED_PROXIES) {
             try {
-                ProxySettings settings = ProxySettings.parse(uri);
+                ProxySettings settings = ProxySettings.fromUri(Uri.parse(uri));
                 if (settings != null && settings.isValid()) {
                     SharedConfig.ProxyInfo proxyInfo = new SharedConfig.ProxyInfo(settings);
                     SharedConfig.proxyList.add(proxyInfo);
@@ -142,7 +143,7 @@ public class AutoProxyManager implements NotificationCenter.NotificationCenterDe
                                 if (line.isEmpty() || line.startsWith("#")) {
                                     continue;
                                 }
-                                ProxySettings settings = ProxySettings.parse(line);
+                                ProxySettings settings = ProxySettings.fromUri(Uri.parse(line));
                                 if (settings != null && settings.isValid()) {
                                     fetched.add(settings);
                                 }
